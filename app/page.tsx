@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import Squares from "@/components/square-bg"
 import { useState, useEffect, useRef } from 'react';
+import Link from "next/link"
 
 export default function Home() {
   // for form placeholders 
@@ -209,13 +210,15 @@ export default function Home() {
               academic network at Kenule Benson Saro-Wiwa Polytechnic.
             </p>
             <div className="flex justify-center items-center mb-12">
+              <Link href="/dashboard" className="text-blue-600 hover:underline mr-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8 py-4"
               >
-                Get Started Free
+                Join Now for Free
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+              </Link>
             </div>
 
             {/* Stats */}

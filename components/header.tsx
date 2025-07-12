@@ -1,9 +1,8 @@
 "use client"
 
-import { GraduationCap, Bell, User, Sun, Moon, Menu, X, LogOut, Search, Mail, CreditCard, Settings, Users } from "lucide-react"
+import { GraduationCap, Bell, User, Sun, Moon, Menu, X, LogOut, Mail, CreditCard, Settings, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
@@ -58,13 +57,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:block">
-              <Input
-                placeholder="Search students..."
-                className="w-60 bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800"
-              />
-            </div>
-
             {/* Theme Toggle Button */}
             <Button
               variant="ghost"
@@ -189,12 +181,10 @@ export function Header() {
                   </Button>
                 </div>
 
-                <div className="relative">
-                  <Input
-                    placeholder="Search students..."
-                    className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
-                  />
-                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <div className="">
+                  <Link href="/pricing" className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-colors mb-2">
+                    Go Pro
+                  </Link>
                 </div>
               </div>
 

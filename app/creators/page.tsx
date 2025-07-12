@@ -37,10 +37,10 @@ const teamMembersConfig: TeamMember[] = [
     role: "Web and Full-Stack Frontend Engineer | Full Stack Developer",
     bgColor: "bg-rose-200",
     skills: ["Frontend Engineer", "Full Stack Development", "Database Design"],
-    social: {
+   social: {
       github: "https://github.com/gitKarasune",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/sune-kara",
+      twitter: "https://x.com/_kendev",
     },
   },
   {
@@ -51,8 +51,8 @@ const teamMembersConfig: TeamMember[] = [
     skills: ["Full-Stack Development", "Frontend Engineer", "Prototyping"],
     social: {
       github: "https://github.com/marcdev001",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/martin-chikwuelum-0036052a1/",
+      twitter: "https://x.com/Martin543216?t=mYRrq18PLqCjxXmqCOdpBg&s=09",
     },
   },
   {
@@ -63,8 +63,8 @@ const teamMembersConfig: TeamMember[] = [
     skills: ["Backend Development", "API Development", "Frontend Engineer"],
     social: {
       github: "https://github.com/KingZedPriest",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://linkedin.com/in/charles-chukwuemeka-b2b9a2270",
+      twitter: "https://twitter.com/Zed_Priest",
     },
   },
 ];
@@ -234,74 +234,6 @@ export default function CreatorPage() {
           </div>
         </section>
 
-        {/* Individual Profiles */}
-        <section>
-          <h2 className="text-2xl font-bold mb-8">Individual Profiles</h2>
-          <div className="space-y-12">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.id}
-                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 items-center`}
-              >
-                <div className="lg:w-1/3">
-                  <div
-                    className={`w-64 h-80 rounded-2xl ${member.bgColor} flex items-center justify-center overflow-hidden shadow-2xl`}
-                  >
-                    <Avatar className="w-56 h-72">
-                      <AvatarImage
-                        src={member.avatar}
-                        alt={member.name || member.username}
-                        className="object-cover"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = "/images/default.png";
-                        }}
-                      />
-                      <AvatarFallback className="text-4xl font-semibold">
-                        {member.name
-                          ? member.name.split(" ").map((n) => n[0]).join("")
-                          : member.username.slice(0, 2).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
-                  </div>
-                </div>
-                <div className="lg:w-2/3 space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">{member.name || member.username}</h3>
-                    <p className="text-lg font-medium mb-4">{member.role}</p>
-                    <p className=" leading-relaxed text-lg">{member.description}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-3">Core Skills</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {member.skills.map((skill) => (
-                        <Badge key={skill} variant="outline" className="px-3 py-1">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex space-x-4">
-                    <a href={`mailto:${member.username}@gmail.com`}>
-                      <Button variant="outline" size="sm">
-                        <Mail className="h-4 w-4 mr-2" />
-                        Contact
-                      </Button>
-                    </a>
-                    <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" size="sm">
-                        <SiLinkedin className="h-4 w-4 mr-2" />
-                        Connect
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-
-
         {/* Call to Action */}
         <section className="mt-20 text-center">
           <Card className="bg-gradient-to-r from-slate-900 to-slate-700 text-white border-0">
@@ -315,13 +247,16 @@ export default function CreatorPage() {
                   <Mail className="h-5 w-5 mr-2" />
                   Get in Touch
                 </Button>
+
+                <a href="https://github.com/gitkarasune/student-dir-v2">
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-white border-white hover:bg-white hover:text-slate-900 bg-transparent"
-                >
+                  >
                   View Project
                 </Button>
+                  </a>
               </div>
             </CardContent>
           </Card>

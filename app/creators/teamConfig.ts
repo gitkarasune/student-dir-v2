@@ -22,8 +22,8 @@ export const teamMembersConfig: TeamMemberConfig[] = [
     skills: ["Frontend Engineer", "Full Stack Development", "Database Design"],
     social: {
       github: "https://github.com/gitKarasune",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/sune-kara",
+      twitter: "https://x.com/_kendev",
     },
   },
   {
@@ -34,8 +34,8 @@ export const teamMembersConfig: TeamMemberConfig[] = [
     skills: ["Full-Stack Development", "Frontend Engineer", "Prototyping"],
     social: {
       github: "https://github.com/marcdev001",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/martin-chikwuelum-0036052a1/",
+      twitter: "https://x.com/Martin543216?t=mYRrq18PLqCjxXmqCOdpBg&s=09",
     },
   },
   {
@@ -46,8 +46,8 @@ export const teamMembersConfig: TeamMemberConfig[] = [
     skills: ["Backend Development", "API Development", "Frontend Engineer"],
     social: {
       github: "https://github.com/KingZedPriest",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://linkedin.com/in/charles-chukwuemeka-b2b9a2270",
+      twitter: "https://twitter.com/Zed_Priest",
     },
   },
   // ... other members ...
