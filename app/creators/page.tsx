@@ -9,6 +9,7 @@ import { LampContainer } from "@/components/ui/creator-lamp"
 import { Mail } from "lucide-react"
 import { Skeleton } from '@/components/ui/skeleton';
 import { SiGithub, SiX, SiLinkedin } from 'react-icons/si'
+import Link from 'next/link';
 
 // Define the team member structure
 interface TeamMember {
@@ -83,13 +84,13 @@ export default function CreatorPage() {
               const response = await fetch(
                 `https://api.github.com/users/${member.username}`
               );
-              
+
               if (!response.ok) {
                 throw new Error(`GitHub API error: ${response.status}`);
               }
-              
+
               const data = await response.json();
-              
+
               return {
                 ...member,
                 name: data.name || member.username,
@@ -107,7 +108,7 @@ export default function CreatorPage() {
             }
           })
         );
-        
+
         setTeamMembers(membersWithData);
         setLoading(false);
       } catch (err) {
@@ -121,35 +122,35 @@ export default function CreatorPage() {
   }, []);
 
   if (loading) {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-black dark:text-white flex items-center justify-center">
-      <main className="container mx-auto px-4 py-12 w-full">
-        <div className="mb-12 text-center">
-          <Skeleton className="mx-auto h-10 w-72 mb-4 rounded-lg" />
-          <Skeleton className="mx-auto h-6 w-96 rounded-lg" />
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/70 shadow-lg flex flex-col items-center">
-              <Skeleton className="h-32 w-32 rounded-full mb-4" />
-              <Skeleton className="h-6 w-32 mb-2 rounded" />
-              <Skeleton className="h-4 w-40 mb-4 rounded" />
-              <div className="flex gap-2 mb-4">
-                <Skeleton className="h-5 w-16 rounded" />
-                <Skeleton className="h-5 w-16 rounded" />
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-black dark:text-white flex items-center justify-center">
+        <main className="container mx-auto px-4 py-12 w-full">
+          <div className="mb-12 text-center">
+            <Skeleton className="mx-auto h-10 w-72 mb-4 rounded-lg" />
+            <Skeleton className="mx-auto h-6 w-96 rounded-lg" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/70 shadow-lg flex flex-col items-center">
+                <Skeleton className="h-32 w-32 rounded-full mb-4" />
+                <Skeleton className="h-6 w-32 mb-2 rounded" />
+                <Skeleton className="h-4 w-40 mb-4 rounded" />
+                <div className="flex gap-2 mb-4">
+                  <Skeleton className="h-5 w-16 rounded" />
+                  <Skeleton className="h-5 w-16 rounded" />
+                </div>
+                <div className="flex gap-3">
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                </div>
               </div>
-              <div className="flex gap-3">
-                <Skeleton className="h-8 w-8 rounded-full" />
-                <Skeleton className="h-8 w-8 rounded-full" />
-                <Skeleton className="h-8 w-8 rounded-full" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
-  );
-}
+            ))}
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   if (error) {
     return (
@@ -174,32 +175,34 @@ export default function CreatorPage() {
         </LampContainer>
 
         {/* Team Overview */}
-        <section className="mb-16"> 
+        <section className="mb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <Card key={member.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-                <CardHeader className="text-center pb-4">
-                  <div
-                    className={`w-32 h-32 rounded-full ${member.bgColor} mx-auto mb-4 flex items-center justify-center overflow-hidden`}
-                  >
-                    <Avatar className="w-28 h-28">
-                      <AvatarImage 
-                        src={member.avatar} 
-                        alt={member.name || member.username} 
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = "/images/default.png";
-                        }}
-                      />
-                      <AvatarFallback className="text-2xl font-semibold">
-                        {member.name
-                          ? member.name.split(" ").map((n) => n[0]).join("")
-                          : member.username.slice(0, 2).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
-                  </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="text-lg font-medium">{member.role}</CardDescription>
-                </CardHeader>
+              <Card key={member.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg cursor-pointer">
+                <Link href={`/creators/${member.username}`}>
+                  <CardHeader className="text-center pb-4">
+                    <div
+                      className={`w-32 h-32 rounded-full ${member.bgColor} mx-auto mb-4 flex items-center justify-center overflow-hidden`}
+                    >
+                      <Avatar className="w-28 h-28">
+                        <AvatarImage
+                          src={member.avatar}
+                          alt={member.name || member.username}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = "/images/default.png";
+                          }}
+                        />
+                        <AvatarFallback className="text-2xl font-semibold">
+                          {member.name
+                            ? member.name.split(" ").map((n) => n[0]).join("")
+                            : member.username.slice(0, 2).toUpperCase()}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <CardTitle className="text-xl">{member.name}</CardTitle>
+                    <CardDescription className="text-lg font-medium">{member.role}</CardDescription>
+                  </CardHeader>
+                </Link>
                 <CardContent className="text-center">
                   <div className="flex flex-wrap gap-2 justify-center mb-4">
                     {member.skills.map((skill) => (
@@ -245,8 +248,8 @@ export default function CreatorPage() {
                     className={`w-64 h-80 rounded-2xl ${member.bgColor} flex items-center justify-center overflow-hidden shadow-2xl`}
                   >
                     <Avatar className="w-56 h-72">
-                      <AvatarImage 
-                        src={member.avatar} 
+                      <AvatarImage
+                        src={member.avatar}
                         alt={member.name || member.username}
                         className="object-cover"
                         onError={(e) => {
@@ -297,7 +300,7 @@ export default function CreatorPage() {
           </div>
         </section>
 
-        
+
 
         {/* Call to Action */}
         <section className="mt-20 text-center">
