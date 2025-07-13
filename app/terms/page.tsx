@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, FileText, Users, Shield, AlertTriangle, Scale, Gavel } from "lucide-react"
-import Link from "next/link"
+import { FileText, Users, Shield, AlertTriangle, Scale, Gavel } from "lucide-react"
 
 export default function TermsOfService() {
   const sections = [
@@ -60,45 +59,24 @@ export default function TermsOfService() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">P</span>
-              </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                PolyConnect
-              </span>
-            </div>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center gap-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-black dark:text-white">
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-50 to-teal-50">
+      <section className="py-16 ">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 border-emerald-200">
+            <Badge className="mb-6 ">
               <Scale className="w-4 h-4 mr-2" />
               Legal Agreement
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-emerald-900 to-teal-900 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 ">
               Terms of Service
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-lg leading-relaxed">
               Please read these terms carefully before using PolyConnect. These terms govern your use of our platform
               and services.
             </p>
-            <p className="text-sm text-slate-500 mt-4">Last updated: December 7, 2024</p>
+            <p className="text-sm mt-4">Last updated: December 7, 2024</p>
           </div>
         </div>
       </section>
@@ -107,10 +85,10 @@ export default function TermsOfService() {
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Introduction */}
-          <Card className="mb-12 border-0 shadow-lg bg-gradient-to-r from-emerald-50 to-teal-50">
+          <Card className="mb-12 border-0 shadow-lg ">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-4 text-slate-900">Agreement Overview</h2>
-              <p className="text-slate-700 leading-relaxed">
+              <h2 className="text-2xl font-bold mb-4">Agreement Overview</h2>
+              <p className=" leading-relaxed">
                 These Terms of Service <b>Terms</b> govern your use of PolyConnect, a student networking platform designed
                 for the academic community of Kenule Benson Saro-Wiwa Polytechnic. By using our service, you agree to
                 these terms.
@@ -124,14 +102,14 @@ export default function TermsOfService() {
               <Card key={section.id} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center">
                       <section.icon className="h-6 w-6 text-white" />
                     </div>
-                    <CardTitle className="text-2xl text-slate-900">{section.title}</CardTitle>
+                    <CardTitle className="text-2xl">{section.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-700 leading-relaxed">{section.content}</p>
+                  <p className="leading-relaxed">{section.content}</p>
                 </CardContent>
               </Card>
             ))}
@@ -140,8 +118,8 @@ export default function TermsOfService() {
           {/* Community Guidelines */}
           <Card className="mt-12 border-0 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl text-slate-900 flex items-center gap-3">
-                <Users className="h-6 w-6 text-blue-600" />
+              <CardTitle className="text-2xl flex items-center gap-3">
+                <Users className="h-6 w-6" />
                 Community Guidelines
               </CardTitle>
               <CardDescription>
@@ -152,8 +130,8 @@ export default function TermsOfService() {
               <div className="grid md:grid-cols-2 gap-4">
                 {guidelines.map((guideline, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-slate-700">{guideline}</p>
+                    <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="">{guideline}</p>
                   </div>
                 ))}
               </div>
@@ -161,13 +139,13 @@ export default function TermsOfService() {
           </Card>
 
           {/* Important Notice */}
-          <Card className="mt-12 border-l-4 border-l-orange-500 bg-orange-50">
+          <Card className="mt-12 border-l-4 border-l-orange-500 ">
             <CardContent className="p-6">
               <div className="flex items-start gap-3">
-                <AlertTriangle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                <AlertTriangle className="h-6 w-6 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-orange-900 mb-2">Important Legal Notice</h3>
-                  <p className="text-orange-800 text-sm leading-relaxed">
+                  <h3 className="font-semibold mb-2">Important Legal Notice</h3>
+                  <p className=" text-sm leading-relaxed">
                     These terms constitute a legally binding agreement. We may update these terms from time to time, and
                     continued use of PolyConnect constitutes acceptance of any changes. For questions about these terms,
                     please contact our legal team.
@@ -178,15 +156,15 @@ export default function TermsOfService() {
           </Card>
 
           {/* Contact Section */}
-          <Card className="mt-12 bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-0">
+          <Card className="mt-12 border-0">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Questions About These Terms?</h3>
-              <p className="mb-6 text-emerald-100">
+              <p className="mb-6 ">
                 Our legal team is available to help clarify any aspects of our Terms of Service.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-emerald-600 hover:bg-emerald-50">Contact Legal Team</Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+                <Button className="">Contact Legal Team</Button>
+                <Button variant="outline" className="border-white ">
                   View Privacy Policy
                 </Button>
               </div>

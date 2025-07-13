@@ -34,6 +34,7 @@ export default function Footer() {
                             <li><Link href="/terms" className=" hover:text-purple-600 transition-colors text-sm">Terms of Service</Link></li>
                             <li><Link href="/privacy" className=" hover:text-purple-600 transition-colors text-sm">Privacy Policy</Link></li>
                             <li><Link href="/contact" className=" hover:text-purple-600 transition-colors text-sm">Contact Us</Link></li>
+                            <li><Link href="/donate" className=" hover:text-purple-600 transition-colors text-sm">Make a Donation</Link></li>
                         </ul>
                     </div>
 

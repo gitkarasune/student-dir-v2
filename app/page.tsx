@@ -209,7 +209,7 @@ export default function Home() {
               onVanishSubmit={() => { }}
             />
 
-            <p className="text-lg md:text-xl mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl mb-8 mt-5 leading-relaxed">
               The ultimate platform for finding classmates, building study groups, and expanding your
               academic network at Kenule Benson Saro-Wiwa Polytechnic.
             </p>
@@ -217,8 +217,8 @@ export default function Home() {
             <div className="flex justify-center items-center gap-4 mb-12">
               <Link href="/dashboard" className="text-blue-600 hover:underline mr-4">
                 <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8 py-4"
+                  size="sm"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-5 lg:px-8 py-4"
                 >
                   Join Now for Free
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -226,9 +226,9 @@ export default function Home() {
               </Link>
               <Link href="/ai-chat">
                 <Button
-                  size="lg"
+                  size="sm"
                   variant="outline"
-                  className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 text-lg px-8 py-4"
+                  className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 text-lg px-5 lg:px-8 py-4"
                 >
                   Ask AI Assistant
                   <Bot className="ml-2 h-5 w-5" />
@@ -322,7 +322,7 @@ export default function Home() {
         </div>
       </section >
 
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

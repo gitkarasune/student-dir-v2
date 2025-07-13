@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Shield, Eye, Lock, UserCheck, Database, Mail } from "lucide-react"
-import Link from "next/link"
+import { Shield, Eye, Lock, UserCheck, Database, Mail } from "lucide-react"
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -85,45 +84,24 @@ export default function PrivacyPolicy() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">P</span>
-              </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                PolyConnect
-              </span>
-            </div>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center gap-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen ">
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-purple-50">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border-blue-200">
+            <Badge className="mb-6 ">
               <Shield className="w-4 h-4 mr-2" />
               Your Privacy Matters
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Privacy Policy
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-lg leading-relaxed">
               We&apos;re committed to protecting your privacy and being transparent about how we collect, use, and protect
               your personal information.
             </p>
-            <p className="text-sm text-slate-500 mt-4">Last updated: December 7, 2024</p>
+            <p className="text-sm mt-4">Last updated: December 7, 2024</p>
           </div>
         </div>
       </section>
@@ -132,10 +110,10 @@ export default function PrivacyPolicy() {
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Introduction */}
-          <Card className="mb-12 border-0 shadow-lg bg-gradient-to-r from-blue-50 to-purple-50">
+          <Card className="mb-12 border-0 shadow-lg ">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-4 text-slate-900">Introduction</h2>
-              <p className="text-slate-700 leading-relaxed">
+              <h2 className="text-2xl font-bold mb-4">Introduction</h2>
+              <p className=" leading-relaxed">
                 At PolyConnect, we respect your privacy and are committed to protecting your personal data. This Privacy
                 Policy explains how we collect, use, disclose, and safeguard your information when you use our student
                 networking platform at Kenule Benson Saro-Wiwa Polytechnic.
@@ -149,17 +127,17 @@ export default function PrivacyPolicy() {
               <Card key={section.id} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center">
                       <section.icon className="h-6 w-6 text-white" />
                     </div>
-                    <CardTitle className="text-2xl text-slate-900">{section.title}</CardTitle>
+                    <CardTitle className="text-2xl">{section.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {section.content.map((item, itemIndex) => (
                     <div key={itemIndex}>
-                      <h4 className="font-semibold text-slate-900 mb-2">{item.subtitle}</h4>
-                      <p className="text-slate-700 leading-relaxed">{item.text}</p>
+                      <h4 className="font-semibold mb-2">{item.subtitle}</h4>
+                      <p className=" leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </CardContent>
@@ -177,11 +155,11 @@ export default function PrivacyPolicy() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-slate-700">• Access your personal data</p>
-                <p className="text-slate-700">• Correct inaccurate information</p>
-                <p className="text-slate-700">• Delete your account and data</p>
-                <p className="text-slate-700">• Export your data</p>
-                <p className="text-slate-700">• Control privacy settings</p>
+                <p className="">• Access your personal data</p>
+                <p className="">• Correct inaccurate information</p>
+                <p className="">• Delete your account and data</p>
+                <p className="">• Export your data</p>
+                <p className="">• Control privacy settings</p>
               </CardContent>
             </Card>
 
@@ -193,10 +171,10 @@ export default function PrivacyPolicy() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-700 mb-4">
+                <p className=" mb-4">
                   If you have questions about this Privacy Policy or our data practices, please contact us:
                 </p>
-                <div className="space-y-2 text-sm text-slate-600">
+                <div className="space-y-2 text-sm">
                   <p>Email: privacy@polyconnect.edu.ng</p>
                   <p>Phone: +234 (0) 123 456 7890</p>
                   <p>Address: Kenule Benson Saro-Wiwa Polytechnic, Rivers State, Nigeria</p>
@@ -206,14 +184,14 @@ export default function PrivacyPolicy() {
           </div>
 
           {/* Footer CTA */}
-          <Card className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0">
+          <Card className="mt-12 border-0">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Questions About Your Privacy?</h3>
-              <p className="mb-6 text-blue-100">
+              <p className="mb-6">
                 We&apos;re here to help. Contact our privacy team if you need clarification on any aspect of our privacy
                 practices.
               </p>
-              <Button className="bg-white text-blue-600 hover:bg-blue-50">Contact Privacy Team</Button>
+              <Button className="">Contact Privacy Team</Button>
             </CardContent>
           </Card>
         </div>
