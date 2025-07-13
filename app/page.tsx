@@ -20,7 +20,10 @@ import {
   Shield,
   Heart,
   Award,
+  Bot,
+  Sparkles
 } from "lucide-react"
+import { motion } from "framer-motion"
 import Squares from "@/components/square-bg"
 import { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
@@ -138,10 +141,10 @@ export default function Home() {
   useEffect(() => {
     const animateStats = (timestamp: number) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
-      
+
       const elapsed = timestamp - startTimeRef.current;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       const nextStats = animatedStats.map((stat) => {
         const currentValue = Math.floor(
           stat.initial + (stat.target - stat.initial) * progress
@@ -177,17 +180,17 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
         <div
-        className={cn(
-          "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
-          // Light mode: soft blue grid, Dark mode: soft blue/gray grid
-          "[background-image:linear-gradient(to_right,#c7d2fe_1px,transparent_1px),linear-gradient(to_bottom,#c7d2fe_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)]"
-  )}
-      />
-      <Spotlight
-        className="-top-40 left-0 md:-top-20 md:left-60"
-        fill="white"
-      />
+          className={cn(
+            "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
+            // Light mode: soft blue grid, Dark mode: soft blue/gray grid
+            "[background-image:linear-gradient(to_right,#c7d2fe_1px,transparent_1px),linear-gradient(to_bottom,#c7d2fe_1px,transparent_1px)]",
+            "dark:[background-image:linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)]"
+          )}
+        />
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="white"
+        />
         <div className="container mx-auto px-4 py-20 relative">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-6 border-blue-200 hover:from-blue-200 hover:to-purple-200 py-2 ">
@@ -203,21 +206,33 @@ export default function Home() {
               placeholders={placeholders}
               onChange={handleChange}
               onSubmit={onSubmit}
+              onVanishSubmit={() => { }}
             />
 
             <p className="text-lg md:text-xl mb-8 leading-relaxed">
               The ultimate platform for finding classmates, building study groups, and expanding your
               academic network at Kenule Benson Saro-Wiwa Polytechnic.
             </p>
-            <div className="flex justify-center items-center mb-12">
+
+            <div className="flex justify-center items-center gap-4 mb-12">
               <Link href="/dashboard" className="text-blue-600 hover:underline mr-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8 py-4"
-              >
-                Join Now for Free
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 text-lg px-8 py-4"
+                >
+                  Join Now for Free
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/ai-chat">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 text-lg px-8 py-4"
+                >
+                  Ask AI Assistant
+                  <Bot className="ml-2 h-5 w-5" />
+                </Button>
               </Link>
             </div>
 
@@ -305,6 +320,61 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section >
+
+      <section className="py-20 relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <motion.div
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-blue-500 p-4 rounded-full mb-6 shadow-2xl"
+            animate={{
+              boxShadow: [
+                "0 0 30px rgba(147, 51, 234, 0.3)",
+                "0 0 60px rgba(59, 130, 246, 0.4)",
+                "0 0 30px rgba(147, 51, 234, 0.3)",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+          >
+            <Bot className="h-12 w-12 text-white" />
+            <Sparkles className="h-8 w-8 text-yellow-300" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent"
+          >
+            PolyConnect AI Assistant
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8"
+          >
+            Your intelligent companion for navigating Kenule Benson Saro-Wiwa Polytechnic. Get instant answers,
+            personalized guidance, and helpful insights about campus life.
+          </motion.p>
+          <div className="flex justify-center items-center gap-4 mb-12">
+            <Link href="/ai-chat">
+              <Button
+                size="xl"
+                variant="outline"
+                className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 text-lg px-8 py-4"
+              >
+                Ask AI Assistant
+                <Bot className="ml-2 h-8 w-8 rotate-2 shadow-2xl" />
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
       </section>
 
       {/* Testimonials Section */}
@@ -413,7 +483,7 @@ export default function Home() {
               <div className="flex gap-3">
                 <Input
                   placeholder="Join our Newsletter"
-                  className="bg-white/90 border-white/30 text-white dark:placeholder:text-white placeholder:text-black placeholder:font-bold h-10"
+                  className="bg-white/90 border-white/30 text-black dark:placeholder:text-white placeholder:text-black placeholder:font-bold h-10"
                 />
                 <Button size={"lg"} className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8">Enter</Button>
               </div>
